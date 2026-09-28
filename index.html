@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://assets.pinterest.com https://widgets.pinterest.com; connect-src 'self' https://api.lanyard.rest https://ws.audioscrobbler.com https://*.pinterest.com; img-src 'self' data: https://skillicons.dev https://cdn.discordapp.com https://i.scdn.co https://lastfm.freetls.fastly.net https://lastfm-img.freetls.fastly.net https://*.pinimg.com https://*.pinterest.com; style-src 'self' 'unsafe-inline'; media-src 'self'; frame-src https://*.pinterest.com; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Vickey &amp; Reim</title>
+<meta name="description" content="Personal homepage of Vickey and Reim: Minecraft plugins, web experiments and things I love.">
+<link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="assets/favicon-96.png">
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+<script src="assets/media/ruler-of-everything-lyrics.js" defer></script>
+<script src="lyrics.js" defer></script>
+<script src="presence.js" defer></script>
+<script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+<video class="bg-video" id="bg-video" src="assets/media/ruler-of-everything-early-edit.mp4" muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1"></video>
+<audio id="song" src="assets/media/ruler-of-everything-instrumental.m4a" preload="metadata" loop></audio>
+<div class="lyrics-stage" id="lyrics-stage" lang="en" aria-hidden="true"></div>
+
+<div class="splash" id="splash" role="dialog" aria-modal="true" aria-labelledby="splash-title" hidden>
+<div class="splash-box">
+<img src="assets/drones/ppepprerde-pixel.gif" alt="" width="135" height="138">
+<h2 id="splash-title" data-i18n="splashTitle">This page plays music</h2>
+<p data-i18n="splashText">Ruler of Everything plays in the background with its early edit video.</p>
+<div class="splash-actions">
+<button type="button" id="enter-sound" data-i18n="enterSound">Enter with sound</button>
+<button type="button" id="enter-silent" data-i18n="enterSilent">Enter without sound</button>
+</div>
+</div>
+</div>
+
+<div class="page">
+
+<header class="masthead">
+<img class="welcome" src="assets/logo/welcome.png" data-i18n-src="welcomeSrc" data-i18n-alt="welcomeAlt" alt="welcome to my homepage">
+<h1><img src="assets/logo/title.png" alt="Vickey &amp; Reim"></h1>
+<img class="drone" src="assets/drones/ppepprerde-pixel.gif" alt="" width="135" height="138">
+<p class="tagline"><span data-i18n="tagline">create until nothing is left to create</span><br><small data-i18n="taglineCredit">from Spring and a Storm by Tally Hall</small></p>
+
+<div class="version">
+<button type="button" class="version-switch" id="version-switch" aria-describedby="version-name" aria-pressed="false">
+<img src="assets/music/ruler-of-everything.gif" alt="Ruler of Everything" width="180" height="136">
+</button>
+<p class="version-caption"><span data-i18n="versionHint">Click the GIF to switch versions</span><br><span class="version-name" id="version-name" data-i18n="trackInstrumental">instrumental</span></p>
+</div>
+
+<div class="player" role="group" aria-labelledby="player-label">
+<span class="player-label" id="player-label" data-i18n="nowPlaying">now playing</span>
+<div class="player-track"><p>Tally Hall &middot; Miracle Musical &middot; Lemon Demon &middot; Will Wood &middot; Graham Kartna &middot; Tally Hall &middot; Miracle Musical &middot; Lemon Demon &middot; Will Wood &middot; Graham Kartna</p></div>
+</div>
+</header>
+
+<div class="layout">
+
+<nav class="sidebar" aria-label="Main">
+<div class="panel">
+<p class="panel-title" data-i18n="navTitle">Navigate</p>
+<ul class="nav">
+<li><a href="#about" data-i18n="navAbout">About me</a></li>
+<li><a href="#ruler" data-i18n="navRuler">Ruler of Everything</a></li>
+<li><a href="#projects" data-i18n="navProjects">Projects</a></li>
+<li><a href="#tech" data-i18n="navTech">Tech</a></li>
+<li><a href="#love" data-i18n="navLove">Things I love</a></li>
+<li><a href="#art" data-i18n="navArt">Art</a></li>
+<li><a href="#spotify" data-i18n="navSpotify">Spotify</a></li>
+<li><a href="#links" data-i18n="navLinks">Links</a></li>
+</ul>
+</div>
+
+<div class="panel">
+<p class="panel-title" id="lang-label" data-i18n="langTitle">Language</p>
+<div class="lang" role="group" aria-labelledby="lang-label">
+<button type="button" data-lang="en" aria-pressed="true">English</button>
+<button type="button" data-lang="es" aria-pressed="false">Espa&ntilde;ol</button>
+</div>
+</div>
+
+<div class="panel buttons">
+<img src="assets/buttons/galaxydiamond.gif" alt="Galaxy Diamond" width="88" height="31">
+<img src="assets/buttons/spaceinvaders.gif" alt="Space" width="88" height="31">
+<img src="assets/buttons/imissxp.gif" alt="I miss XP" width="88" height="31">
+<img src="assets/buttons/y2k.gif" alt="Y2K" width="88" height="31">
+</div>
+</nav>
+
+<main id="main" tabindex="-1">
+
+<section class="window" id="about" aria-labelledby="about-title">
+<h2 class="titlebar" id="about-title">about_me.txt</h2>
+<div class="window-body">
+<p data-i18n="aboutText">I build Minecraft server plugins in Java and small web worlds in TypeScript and plain HTML. Old operating systems, pixel buttons, starfields and Murder Drones live rent free in my head, so they end up in my projects too.</p>
+<dl class="idcard">
+<dt data-i18n="idName">Serial designation</dt><dd>Vickey &amp; Reim</dd>
+<dt data-i18n="idOrbit">Online since</dt><dd>2024</dd>
+<dt data-i18n="idBuilds">Builds</dt><dd data-i18n="idBuildsValue">Minecraft plugins, web toys, desktop apps</dd>
+<dt data-i18n="idFuel">Fuel</dt><dd data-i18n="idFuelValue">oil and a very long playlist</dd>
+</dl>
+</div>
+</section>
+
+<section class="window ruler" id="ruler" aria-labelledby="ruler-title">
+<h2 class="titlebar" id="ruler-title">ruler_of_everything.wma</h2>
+<div class="window-body">
+<p data-i18n="rulerText">I love Ruler of Everything way too much. Press play and the page turns into its music video, with the lyrics floating around it.</p>
+<div class="controls">
+<button type="button" id="play-toggle" data-i18n="play">Play</button>
+<input type="range" id="seek" min="0" max="218" step="0.1" value="0" data-i18n-label="seekLabel" aria-label="Song position">
+<span class="clock" id="clock">0:00 / 3:37</span>
+</div>
+<p class="lyrics-error" id="lyrics-error" data-i18n="lyricsError" hidden>The lyrics could not be loaded.</p>
+</div>
+</section>
+
+<section class="window" id="projects" aria-labelledby="projects-title">
+<h2 class="titlebar" id="projects-title" data-i18n="projectsTitle">My projects</h2>
+<div class="window-body projects">
+
+<article class="project">
+<h3><a href="https://github.com/VictorGugug/BlockProt-Reloaded">BlockProt Reloaded</a></h3>
+<p data-i18n="pBlockProt">Protection plugin for chests, furnaces and more, with a modern GUI. Published on Modrinth, CurseForge and Hangar.</p>
+<p class="stack">Java &middot; Gradle &middot; Paper, Spigot, Folia</p>
+<p class="project-links"><a href="https://modrinth.com/plugin/blockprot-reloaded">Modrinth</a> <a href="https://github.com/VictorGugug/BlockProt-Reloaded" data-i18n="code">Code</a></p>
+</article>
+
+<article class="project">
+<h3><a href="https://github.com/VictorGugug/Zelly-s-Nexus">Zelly's Nexus</a></h3>
+<p data-i18n="pNexus">All-in-one plugin for Minecraft Java Edition 26.x built around dialog menus: auth, antibot, essentials, clans and chat under one command. Early development.</p>
+<p class="stack">Java &middot; Gradle &middot; Paper</p>
+<p class="project-links"><a href="https://github.com/VictorGugug/Zelly-s-Nexus" data-i18n="code">Code</a></p>
+</article>
+
+<article class="project">
+<h3><a href="https://github.com/VictorGugug/M.E">ZarXP</a></h3>
+<p data-i18n="pZarXP">Windows XP recreated in the browser with the Luna style: boot screen, Start menu, Internet Explorer 6, Media Player, Paint, Minesweeper and Solitaire.</p>
+<p class="stack">React &middot; TypeScript &middot; Vite &middot; Zustand</p>
+<p class="project-links"><a href="https://victorgugug.github.io/M.E/" data-i18n="live">Open it</a> <a href="https://github.com/VictorGugug/M.E" data-i18n="code">Code</a></p>
+</article>
+
+<article class="project">
+<h3><a href="https://github.com/VictorGugug/Ramosi">Ramosi</a></h3>
+<p data-i18n="pRamosi">A generative watercolor bouquet of yellow flowers with a white butterfly and a hidden letter. Runs in the browser and as a Windows desktop app.</p>
+<p class="stack">React &middot; TypeScript &middot; Tailwind &middot; Tauri &middot; Rust</p>
+<p class="project-links"><a href="https://victorgugug.github.io/Ramosi/" data-i18n="live">Open it</a> <a href="https://github.com/VictorGugug/Ramosi" data-i18n="code">Code</a></p>
+</article>
+
+<article class="project">
+<h3><a href="https://github.com/VictorGugug/VOAC">Miracle Hall</a></h3>
+<p data-i18n="pMiracle">Fan site about Tally Hall, Miracle Musical and Cojum Dip: history, members, discography and an analysis of Hawaii: Part II.</p>
+<p class="stack">HTML &middot; CSS &middot; JavaScript</p>
+<p class="project-links"><a href="https://victorgugug.github.io/VOAC/" data-i18n="live">Open it</a> <a href="https://github.com/VictorGugug/VOAC" data-i18n="code">Code</a></p>
+</article>
+
+<article class="project">
+<h3><a href="https://github.com/VictorGugug/HNP">HNP</a></h3>
+<p data-i18n="pHNP">School project about Hiroshima, Nagasaki and Chernobyl, and the role of the imaginary number i in quantum physics. Written in Spanish.</p>
+<p class="stack">HTML &middot; CSS</p>
+<p class="project-links"><a href="https://victorgugug.github.io/HNP/" data-i18n="live">Open it</a> <a href="https://github.com/VictorGugug/HNP" data-i18n="code">Code</a></p>
+</article>
+
+</div>
+</section>
+
+<section class="window" id="tech" aria-labelledby="tech-title">
+<h2 class="titlebar" id="tech-title" data-i18n="techTitle">Tech I use</h2>
+<div class="window-body center">
+<img class="skills" src="https://skillicons.dev/icons?i=java,gradle,ts,js,react,vite,tailwind,tauri,rust,html,css,nodejs,bun,githubactions&amp;perline=7" alt="Java, Gradle, TypeScript, JavaScript, React, Vite, Tailwind, Tauri, Rust, HTML, CSS, Node.js, Bun, GitHub Actions" width="364" height="104">
+<p class="button-row">
+<img src="assets/buttons/javanow.gif" alt="Java" width="88" height="31">
+<img src="assets/buttons/javascript.gif" alt="JavaScript" width="88" height="31">
+<img src="assets/buttons/css3.gif" alt="Made with CSS" width="88" height="31">
+<img src="assets/buttons/valid-html5.gif" alt="HTML5" width="88" height="31">
+<img src="assets/buttons/github.gif" alt="GitHub" width="88" height="31">
+<img src="assets/buttons/minecraft.gif" alt="Minecraft" width="88" height="31">
+</p>
+</div>
+</section>
+
+<section class="window" id="love" aria-labelledby="love-title">
+<h2 class="titlebar" id="love-title" data-i18n="loveTitle">Things I love</h2>
+<div class="window-body">
+
+<div class="shelf">
+<h3>Murder Drones</h3>
+<div class="shelf-items">
+<img src="assets/drones/ppepprerde-stamp-1.gif" alt="Murder Drones fan stamp" width="99" height="56">
+<img src="assets/drones/ppepprerde-stamp-2.gif" alt="Murder Drones stamp" width="99" height="56">
+<img src="assets/drones/shortcakeemoji-stamp.png" alt="Murder Drones stamp" width="99" height="56">
+<img src="assets/drones/sketchyraven-n-stamp.png" alt="N fan stamp" width="81" height="56">
+<img src="assets/drones/ppepprerde-blinkie.gif" alt="Murder Drones blinkie" width="150" height="20">
+</div>
+</div>
+
+<div class="shelf">
+<h3 data-i18n="shelfSpace">Space</h3>
+<div class="shelf-items">
+<img src="assets/buttons/raining-starss-button.gif" alt="Raining stars" width="88" height="31">
+<img src="assets/buttons/alienow.gif" alt="The Truth Now" width="88" height="31">
+<img src="assets/buttons/tiredalien.gif" alt="Tired alien" width="88" height="31">
+<img src="assets/buttons/geocities_area_51.gif" alt="GeoCities Area 51" width="88" height="31">
+<img src="assets/buttons/wwscifi.gif" alt="World Wide Sci-Fi" width="88" height="31">
+</div>
+</div>
+
+<div class="shelf">
+<h3>Tally Hall &amp; Miracle Musical</h3>
+<div class="shelf-items">
+<img src="assets/music/tallyhall-good-and-evil-stamp.png" alt="Tally Hall Good and Evil stamp" width="103" height="59">
+<img src="assets/music/miraclemusical-blinkie.gif" alt="Miracle Musical blinkie" width="150" height="20">
+</div>
+</div>
+
+<div class="shelf">
+<h3>Lemon Demon</h3>
+<div class="shelf-items">
+<img src="assets/music/lemondemon-stamp.gif" alt="Lemon Demon stamp" width="99" height="56">
+<img src="assets/music/lemondemon-view-monster-stamp.png" alt="Lemon Demon View-Monster stamp" width="99" height="56">
+<img src="assets/music/lemondemon-javabean-stamp.png" alt="Lemon Demon Hip to the Javabean stamp" width="99" height="56">
+</div>
+</div>
+
+<div class="shelf">
+<h3>Will Wood</h3>
+<div class="shelf-items">
+<img src="assets/music/willwood-tapeworms-stamp.png" alt="Will Wood and the Tapeworms stamp" width="99" height="56">
+<img src="assets/music/willwood-selfish-stamp.png" alt="Will Wood Self-ish stamp" width="99" height="56">
+<img src="assets/music/willwood-selfish.gif" alt="Animated Self-ish album cover" width="100" height="100">
+</div>
+</div>
+
+<div class="shelf">
+<h3>Graham Kartna</h3>
+<div class="shelf-items">
+<img src="assets/music/grahamkartna-blinkie.gif" alt="Graham Kartna fan blinkie" width="150" height="20">
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="window" id="art" aria-labelledby="art-title">
+<h2 class="titlebar" id="art-title" data-i18n="artTitle">Art I like</h2>
+<div class="window-body">
+<p data-i18n="artText">Cyber and brutalist posters, dithered bitmaps, wireframe 3D and retro-futurism. I collect it on Pinterest.</p>
+<div class="board">
+<a data-pin-do="embedBoard" data-pin-board-width="560" data-pin-scale-height="320" data-pin-scale-width="100" href="https://www.pinterest.com/ZarVickey/i-like-this/" data-i18n="artLink">Open my board on Pinterest</a>
+</div>
+</div>
+</section>
+
+<section class="window" id="spotify" aria-labelledby="spotify-title" hidden>
+<h2 class="titlebar" id="spotify-title" data-i18n="spotifyTitle">On my headphones</h2>
+<div class="window-body music-panels">
+<div id="presence-panel">
+<h3 data-i18n="presenceTitle">Presence</h3>
+<ul class="tracks" id="presence-list"></ul>
+</div>
+<div id="recent-panel">
+<h3 data-i18n="recentTitle">Recently played</h3>
+<ul class="tracks" id="recent-list"></ul>
+</div>
+</div>
+</section>
+
+<section class="window" id="links" aria-labelledby="links-title">
+<h2 class="titlebar" id="links-title" data-i18n="linksTitle">Links</h2>
+<div class="window-body">
+<ul class="linklist">
+<li><a href="https://github.com/VictorGugug">GitHub</a> <span data-i18n="linkGithub">all my repositories</span></li>
+<li><a href="https://modrinth.com/plugin/blockprot-reloaded">Modrinth</a> <span data-i18n="linkModrinth">BlockProt Reloaded downloads</span></li>
+<li><a href="https://github.com/VictorGugug/spicy-lyrics">spicy-lyrics</a>, <a href="https://github.com/VictorGugug/spicetify-lucid">spicetify-lucid</a>, <a href="https://github.com/VictorGugug/Hazy">Hazy</a> <span data-i18n="linkForks">Spicetify forks I tinker with</span></li>
+</ul>
+</div>
+</section>
+
+</main>
+</div>
+
+<footer class="footer">
+<p class="button-row">
+<img src="assets/buttons/winxp.gif" alt="Windows XP" width="88" height="31">
+<img src="assets/buttons/yesterweb.gif" alt="Yesterweb" width="88" height="31">
+<img src="assets/buttons/construction.gif" alt="Under construction" width="88" height="31">
+<img src="assets/buttons/anybrowser.gif" alt="Any browser" width="88" height="31">
+<img src="assets/buttons/800x600.gif" alt="Best viewed in 800 by 600" width="88" height="31">
+</p>
+<p class="credits"><span data-i18n="credits">Graphics by</span> <a href="https://www.deviantart.com/ppepprerde">ppepprerde</a>, <a href="https://www.deviantart.com/shortcakeemoji">shortcakeemoji</a>, <a href="https://www.deviantart.com/sketchyraven">SketchyRaven</a>, <a href="https://www.deviantart.com/i-psofacto">i-psofacto</a>, <a href="https://www.deviantart.com/cyberdaydream">cyberdaydream</a>, <a href="https://www.deviantart.com/gorillazdotcom">gorillazdotcom</a>, <a href="https://www.deviantart.com/darklord1765">darklord1765</a>, <a href="https://cyber.dabamos.de/88x31/">The 88x31 GIF Collection</a>, <a href="https://pixelmoondust.neocities.org/archives/archivedtiles">Pixel Moondust</a>, <a href="https://cooltext.com/">Cool Text</a>, <a href="https://blinkies.cafe/">blinkies.cafe</a>, <a href="https://skillicons.dev/">skillicons.dev</a>. <span data-i18n="creditsMD">Murder Drones belongs to Glitch Productions.</span></p>
+</footer>
+
+</div>
+</body>
+</html>
